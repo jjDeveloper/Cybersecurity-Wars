@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecurity Wars </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+    <style>
+        /* Reset some default styles */
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        li,
+        form {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set the font family and background color */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #000000;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Mobile navigation button styles */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .mobile-nav.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-4px, 5px);
+        }
+
+        .mobile-nav.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-nav.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-4px, -5px);
+        }
+
+        /* Media query for displaying mobile-nav */
+        @media (max-width: 768px) {
+            .mobile-nav {
+                display: none;
+                max-height: 35px;
+            }
+
+            .mobile-nav.active {
+                display: none;
+                max-height: auto;
+            }
+        }
+
+        /* Hero section styles */
+        #hero {
+            background-color: #333;
+            text-align: center;
+            padding: 150px 0;
+            color: #fff;
+            position: relative;
+        }
+
+        #hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            z-index: 0;
+        }
+
+        #hero h1,
+        #hero p,
+        .cta-button {
+            position: relative;
+            z-index: 1;
+        }
+
+        #hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #df9763;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Section styles (e.g., About Us, Services, Why Choose Us) */
+        section {
+            padding: 40px;
+            background-color: #333;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        section ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #1f1f1f;
+        }
+
+        footer p {
+            color: #fff;
+        }
+
+        /* Form styles (customize as needed) */
+        form {
+            margin-top: 20px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form button[type="submit"] {
+            background-color: #721448;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Mobile navigation menu styles */
+        #mobile-nav {
+            background-color: #1f1f1f;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+
+        #mobile-nav.active {
+            display: block;
+        }
+
+        #mobile-nav ul {
+            list-style-type: none;
+            text-align: center;
+            padding-top: 20%;
+        }
+
+        #mobile-nav ul li {
+            margin-bottom: 20px;
+        }
+
+        #mobile-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 24px;
+            transition: color 0.2s;
+        }
+
+        #mobile-nav ul li a:hover {
+            color: #c91717;
+        }
+
+        themed-section {
+            background-color: #333;
+            margin: 20px 0;
+        }
+    </style>
+    <style>
+        /* Default styles for desktop */
+        .mini-game-section {
+            background-color: #333;
+            text-align: center;
+            padding: 40px;
+            margin-bottom: 20px;
+        }
+
+        .mini-game-heading {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .mini-game-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .mini-game-column {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .mini-game-container {
+                flex-direction: column-reverse;
+                /* Stack columns vertically on mobile */
+            }
+
+            .mini-game-column {
+                margin-right: 0;
+                /* Remove right margin on mobile */
+                margin-bottom: 20px;
+                /* Add bottom margin for spacing on mobile */
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <!-- Add a mobile navigation button -->
+        <div id="mobile-nav" class="mobile-nav">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <nav>
+            <!-- Add scroll links to in-page content -->
+        </nav>
+    </header>
+
+    <div id="hero" theme="default">
+        <h1>CyberSecurity Wars</h1>
+    </div>
+
+    <!-- Mini-Game Section -->
+    <section class="mini-game-section">
+        <h2 class="mini-game-heading">Cybersecurity Wars</h2> <!-- Updated title -->
+        <main class="mini-game-container">
+            <!-- Left column: cybersecurity-wars -->
+            <cybersecurity-wars class="mini-game-column"></cybersecurity-wars>
+
+            <!-- Right column: game-info -->
+            <game-info class="mini-game-column"></game-info>
+        </main>
+    </section>
+
+    <footer>
+        <game-modal id="game-modal"></game-modal>
+        <trivia-modal id="trivia-modal"></trivia-modal>
+    </footer>
+
+    <script type="module" src="./out-tsc/src/main.js"></script>
+</body>
+
+</html>
